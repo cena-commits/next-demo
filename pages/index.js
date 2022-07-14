@@ -3,16 +3,16 @@ import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 import Link from "next/link";
 
-export async function  getServerSideProps(){
+export async function getStaticProps() {
   const res = await fetch("https://jherr-pokemon.s3.us-west-1.amazonaws.com/index.json");
   return {
-      props:{
-        pokemon: await res.json(),
-      }
+    props: {
+      pokemon: await res.json(),
+    }
   }
 }
 
-export default function Home({pokemon}) {
+export default function Home({ pokemon }) {
 
   return (
     <div className={styles.container}>
